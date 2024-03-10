@@ -56,7 +56,7 @@ const examples: Example[] = [
     code: 'abs(sin(t / 3 * x / 2) * exp(1 - sqrt(pow(x / 2, 2) + pow(y / 2, 2))))',
   },
   {
-    code: '(3 / sqrt((x - 3 * cos(t)) ** 2 + (y - 3 * sin(t)) ** 2)) ** 3',
+    code: '(3 / sqrt(((x * 1.5) - 6 * cos(t * 0.5)) ** 2 + ((y * 1.5) - 6 * sin(t * 0.5)) ** 2)) ** 2.5',
     grid: 'hex',
   },
 ];
