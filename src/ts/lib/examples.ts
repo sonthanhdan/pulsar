@@ -52,6 +52,9 @@ const examples: Example[] = [
   {
     code: '1 / abs((x + y) + (t * 4) % 70 - 35)',
   },
+  {
+    code: 'abs(sin(t / 3 * x / 2) * exp(1 - sqrt(pow(x / 2, 2) + pow(y / 2, 2))))',
+  },
 ];
 
 export function getRandomExample(): Example {
