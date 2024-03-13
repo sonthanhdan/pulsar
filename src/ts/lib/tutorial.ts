@@ -111,14 +111,16 @@ const buttonLabelMap = {
 
 export class Tutorial {
   constructor(pulsar: Pulsar) {
-    // Save the initial state, so it can be restored when the tutorial is done
-    steps[steps.length - 1].code = state.code;
-    steps[steps.length - 1].grid = state.grid;
-    steps[steps.length - 1].animate = state.animate;
-
     $next.addEventListener('click', () => {
       if (step === null) {
         step = 0;
+
+        // Save the initial state, so it can be restored when the tutorial is done
+        // This will happen only once when the tutorial is started
+        // If a user starts the tutorial again, the initial state won't be saved again
+        steps[steps.length - 1].code = state.code;
+        steps[steps.length - 1].grid = state.grid;
+        steps[steps.length - 1].animate = state.animate;
       } else {
         step = (step + 1) % steps.length;
       }
