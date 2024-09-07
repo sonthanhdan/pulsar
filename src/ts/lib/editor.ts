@@ -27,7 +27,6 @@ const forbiddenWords = [
   'clearInterval',
   'requestAnimationFrame',
   'cancelAnimationFrame',
-  'postMessage',
   'addEventListener',
   'removeEventListener',
   'dispatchEvent',
@@ -44,6 +43,8 @@ const forbiddenWords = [
   'URL',
   'console',
   'debugger',
+  'constructor',
+  '\\'
 ];
 
 const CODE_MAX_LENGTH = 300;
