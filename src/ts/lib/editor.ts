@@ -44,7 +44,6 @@ const forbiddenWords = [
   'console',
   'debugger',
   'constructor',
-  '\\'
 ];
 
 const CODE_MAX_LENGTH = 300;
