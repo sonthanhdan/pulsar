@@ -5,10 +5,12 @@ const examples: Example[] = [
     code: '(cos(x * t / 5) + sin(y * t / 5)) / 2',
   },
   {
+    // Radial waves
     code: '(cos(sqrt(x * x + y * y) - t) + 1) / 2',
     grid: 'hex',
   },
   {
+    // Floral pattern
     code: '(cos(sin(x * y) + t * 0.66) + 1) / 2',
   },
   {
@@ -18,13 +20,16 @@ const examples: Example[] = [
     code: 'sqrt(x*x + y*y) > (cos(x + t) + 1) / 2 * 5  ? noise(x + t, y + t) * 0.3 : 1',
   },
   {
+    // 2d waves
     code: 'cos(x + t) > y * 0.3 + 0.5 ? (cos(x + t) + 1) / 4 + 0.5 : 0', // 'cos(x + t) > y * 0.3 + 0.5 ? 0.8 : 0',
   },
   {
-    code: 'cos(t * 0.5) * 0.5 + 0.5', // pulse
+    // Simple pulse
+    code: 'cos(t * 0.5) * 0.5 + 0.5', 
     animate: 'opacity',
   },
   {
+    // Spinning
     code: 'sin(0.5 * x + y * t * 0.8) * sin(t / 4)',
     grid: 'triangular',
   },
@@ -33,7 +38,7 @@ const examples: Example[] = [
     grid: 'hex',
   },
   {
-    code: ' sin(t) * sin(x) + cos(t) * cos(y)',
+    code: 'sin(t) * sin(x) + cos(t) * cos(y)',
     grid: 'triangular',
     animate: 'opacity',
   },
@@ -42,24 +47,28 @@ const examples: Example[] = [
     grid: 'hex',
   },
   {
+    // Windmill
     code: 'sin(3 * atan2(y,x) + t)',
     grid: 'hex',
   },
   {
+    // Rain
     code: '1 - (((x + 3) * (x + 4) + y + t * 0.3 * (1 + x * x % 5) * 3) % 36) / 12',
     animate: 'opacity',
   },
   {
+    // Diagonal wave
     code: '1 / abs((x + y) + (t * 4) % 70 - 35)',
   },
   {
     code: 'abs(sin(t / 3 * x / 2) * exp(1 - sqrt(pow(x / 2, 2) + pow(y / 2, 2))))',
   },
   {
+    // Spinning circle
     code: '(3 / sqrt(((x * 1.5) - 6 * cos(t * 0.5)) ** 2 + ((y * 1.5) - 6 * sin(t * 0.5)) ** 2)) ** 2.5',
     grid: 'hex',
   },
-  /*
+  /*  
   https://news.ycombinator.com/item?id=41478068
 
   // This script recognizes 17 regions and paints each region according to
@@ -102,8 +111,48 @@ const examples: Example[] = [
   */
   {
     code: '(abs(x)<5)*(1-t%1)**.3*((c,d)=>c&1&~(c+1?268656721+(d<5)*180268851>>d%5*6+c/2:d==2))((y>4)-5*(x>2)+(y>0)-(y<0)+5*(x<-2)-(y<-4)+5,t%10|0)'
+  },
+  {
+    // Spiral wave
+    // // Calculate the distance from the center
+    // const distance = Math.sqrt(x * x + y * y);
+
+    // // Calculate the angle (in radians) of the point from the center
+    // const angle = Math.atan2(y, x);
+
+    // // Parameters to adjust the spiral effect
+    // const spiralTightness = 0.5;
+    // const waveFrequency = 2;
+    // const contractionSpeed = 0.1;
+
+    // // Create a smoother spiral effect
+    // const spiral = distance + angle * spiralTightness;
+
+    // // Use sine to create a wave effect, and make it contract over time
+    // const wave = Math.sin(spiral * waveFrequency - t * contractionSpeed);
+
+    // // Apply a smooth falloff based on distance from center
+    // const falloff = 1 / (1 + distance * 0.2);
+
+    // // Combine wave and falloff, then normalize to 0-1 range
+    // return (wave * falloff + 1) / 2;
+    code: '(sin(sqrt(x * x + y * y) + atan2(y, x) * 1 - t) * 1 / (1 + sqrt(x * x + y * y) * 0.2) + 1) / 2'
+  },
+  {
+    // Checkered pulse
+    code: '(sqrt(x*x + y*y) < 6) ? (i % 2 ? 1:-1) * (sin(t * 0.6)) : 0',
+    grid: 'triangular',
+  },
+  // Diamond waves
+  {
+    code: '(sin(abs(x) + abs(y) - t * 0.6) + 1) / 2',
+    grid: 'hex',
+  },
+  {
+    // Christmas tree
+    code: 'ceil(((abs(t * 0.7)^2)*7) % 120) === i ? 0 : ((abs(y-6) - abs(x*2.3)) * (cos(t * 0.2) * 0.3 + 0.5))',
   }
-];
+]
 
 export function getRandomExample(): Example {
   return {
